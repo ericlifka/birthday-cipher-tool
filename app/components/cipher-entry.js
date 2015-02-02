@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import cipher from '../utils/cipher';
 
 export default Ember.Component.extend({
     classNames: ["cipher-entry"],
@@ -10,7 +11,6 @@ export default Ember.Component.extend({
     }),
 
     runCipher: Ember.observer("textInput", function () {
-        var text = this.get('textInput');
-        this.set('ciphers', [text, text, text]);
+        this.set('ciphers', cipher(this.get('textInput')));
     })
 });
