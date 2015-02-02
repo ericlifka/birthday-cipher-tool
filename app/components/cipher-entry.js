@@ -7,10 +7,10 @@ export default Ember.Component.extend({
     ciphers: null,
 
     textInput: Ember.computed(function () {
-        return "";
+        return "sample";
     }),
 
     runCipher: Ember.observer("textInput", function () {
         this.set('ciphers', cipher(this.get('textInput')));
-    })
+    }).on('init')
 });
