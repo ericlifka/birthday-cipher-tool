@@ -4,8 +4,9 @@
 
 <div class="output">
     {{#each cipher in ciphers}}
-        <div>
-            {{cipher}}
+        <div class="cipher-entry">
+            <span class="key">{{cipher.translationKey}}</span>
+            <span class="text">{{cipher.text}}</span>
         </div>
     {{/each}}
 </div>

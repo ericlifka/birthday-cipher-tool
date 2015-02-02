@@ -23,8 +23,11 @@ function translate(letter, increment) {
 
 export default function cipher(text) {
     return offsets.map(function (offset) {
-        return text.toLocaleLowerCase().split('').map(function (letter) {
-            return translate(letter, offset);
-        }).join('')
+        return {
+            translationKey: offset,
+            text: text.toLocaleLowerCase().split('').map(function (letter) {
+                return translate(letter, offset);
+            }).join('')
+        }
     });
 }
