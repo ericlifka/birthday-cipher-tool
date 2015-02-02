@@ -17,7 +17,7 @@ function translate(letter, increment) {
 }
 
 export default function cipher(text) {
-    return [text.split('').map(function (l) {
+    return [text.toLocaleLowerCase().split('').map(function (l) {
         return translate(l, 1);
     }).join('')];
 }
