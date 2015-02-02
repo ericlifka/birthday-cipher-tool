@@ -4,12 +4,17 @@ var translationMap = {};
     translationMap[index] = letter;
 });
 
+var offsets = [];
+for (var i = 1; i < 26; i++) {
+    offsets.push(i);
+}
+
 function mod26(num) {
     return num % 26;
 }
 
 function translate(letter, increment) {
-    if (!translationMap[letter]) {
+    if (!translationMap.hasOwnProperty(letter)) {
         return letter;
     }
 
@@ -17,7 +22,9 @@ function translate(letter, increment) {
 }
 
 export default function cipher(text) {
-    return [text.toLocaleLowerCase().split('').map(function (l) {
-        return translate(l, 1);
-    }).join('')];
+    return offsets.map(function (offset) {
+        return text.toLocaleLowerCase().split('').map(function (letter) {
+            return translate(letter, offset);
+        }).join('')
+    });
 }
