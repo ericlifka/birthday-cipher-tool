@@ -4,10 +4,16 @@ var translationMap = {};
     translationMap[index] = letter;
 });
 
+function mod26(num) {
+    return num % 26;
+}
+
+function increment(num) {
+    return num + 1;
+}
+
 export default function cipher(text) {
-    text.split('').map(function (l) {
-
-    });
-
-    return [text, text, text, text];
+    return [text.split('').map(function (l) {
+        return translationMap[mod26(increment(translationMap[l]))];
+    }).join('')];
 }
