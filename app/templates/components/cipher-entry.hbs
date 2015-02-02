@@ -3,5 +3,9 @@
 </div>
 
 <div class="output">
-    {{textInput}}
+    {{#each cipher in ciphers}}
+        <div>
+            {{cipher}}
+        </div>
+    {{/each}}
 </div>
